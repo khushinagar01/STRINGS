@@ -1,0 +1,22 @@
+#include<iostream>
+#include<string>
+using namespace std;
+string removeOccurence(string s, string part)
+{
+    //check until substring is present
+    while(s.find(part)!=string::npos)
+    {
+        s.erase(s.find(part),part.length());
+    }
+    return s;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    string part;
+    getline(cin,part);
+    string S=removeOccurence(s,part);
+    cout<<S<<endl;
+    return 0;
+}
