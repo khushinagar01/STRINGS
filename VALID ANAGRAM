@@ -1,0 +1,34 @@
+#include<iostream>
+#include<string>
+using namespace std;
+bool is_Anagram(string s,string t)
+{
+    int frequency[256]={0};
+    for(int i=0;i<s.size();i++)
+    {
+        frequency[s[i]]++;
+    }
+    for(int i=0;i<t.size();i++)
+    {
+        frequency[t[i]]--;
+    }
+    for(int i=0;i<256;i++)
+    {
+        if(frequency[i]!=0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    string t;
+    getline(cin,t);
+    bool ans=is_Anagram(s,t);
+    cout<<ans<<endl;
+    return 0;
+
+}
