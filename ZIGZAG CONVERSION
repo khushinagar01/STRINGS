@@ -1,0 +1,70 @@
+#include<iostream>
+#include<string>
+#include<vector>
+using namespace std;
+string convert(string s, int numRows) {
+    if(numRows==1)
+    {
+     return s;
+    }    
+    vector<string>zigzag(numRows);
+    int i=0;
+    int row=0;
+    bool direction =1;
+
+    //CREATING ZIGZAG PATTERN
+
+    while(true)
+    {
+     if(direction)
+     {
+        //TOP TO BOTTOM DIRECTION
+
+         while(row<numRows && i<s.size())
+         {
+             zigzag[row].push_back(s[i]);
+             row++;
+             i++;
+         }
+         row=numRows-2;
+     }
+     else
+     {
+        //BOTTOM TO TOP DIRECTION
+
+         while(row>=0 && i<s.size())
+         {
+             zigzag[row].push_back(s[i]);
+             row--;
+             i++;
+         }
+         row=1;
+     }
+
+     //END OF LOOP 
+
+     if(i>=s.size())
+     {
+         break;
+     }
+     direction=!direction;
+    }
+    string ans="";
+
+    //PRINTING THE ZIGZAG PATTERN LINE BY LINE
+    
+    for(int i=0;i<zigzag.size();i++)
+    {
+     ans+=zigzag[i];
+    }
+    return ans;
+ }
+int main()
+{
+    string s;
+    getline(cin,s);
+    int numRows;
+    cin>>numRows;
+    cout<<convert(s,numRows)<<endl;
+    return 0 ;
+}
