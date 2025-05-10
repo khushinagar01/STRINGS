@@ -5,7 +5,7 @@ using namespace std;
 //check if a substring is a palindrome
 bool isPalindrome(string &s, int i, int j) 
 {
-    while (i < j) 
+    while (i < j)
     {
         if (s[i] != s[j]) 
         {
