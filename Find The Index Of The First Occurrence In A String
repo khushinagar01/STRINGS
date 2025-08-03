@@ -5,7 +5,7 @@ int strStr(string haystack, string needle)
 {
     int n=haystack.size();
     int m=needle.size();
-    
+
     //OUTER LOOP
 
     for(int i=0;i<=n-m;i++)
